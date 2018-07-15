@@ -1,14 +1,32 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+
 form {
     margin-top: 10px;
     padding: 20px;
 }
 
-.table-data{
-    padding: 20px;
+table{
+    overflow-x: auto;
 }
 
-.container-body{
-    margin-top: 25px;
+body{
+    color:white;
+    background-image: url("../img/tracks.jpeg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+}
+
+.main {
+    margin-top: 40px;
+    background-color: #545b62dc;
+}
+
+.table-data{
+    padding: 20px;
 }
 
 .form-control{
@@ -17,8 +35,4 @@ form {
 
 .form-group {
     padding: 10px;
-}
-
-.container-content{
-    margin: 40px 0;
 }
