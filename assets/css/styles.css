@@ -13,6 +13,7 @@ table{
 }
 
 body{
+    font-family: 'Raleway', sans-serif;
     color:white;
     background-image: url("../img/tracks.jpeg");
     background-size: 100% 100%;
