@@ -13,6 +13,9 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/navigation.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -44,6 +47,38 @@
             </nav>
         </div>
     </header>
+    <div class="container container-body">
+        <div class="border border-info">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="train-display">Train Name</th>
+                        <th scope="col" class="destination-display">Destination</th>
+                        <th scope="col" class="frequency-display">Frequency</th>
+                        <th scope="col" class="arrival-display">Next Arrival</th>
+                        <th scope="col" class="minsaway-display">Arrival Time</th>
+                    </tr>
+                </thead>
+                <tbody class="table-data"></tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="container-content border border-info">
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Train Name</label>
+                    <input type="text" class="form-control" id="form-train-name" placeholder="Train Name">
+                    <label for="exampleFormControlInput1">Destination</label>
+                    <input type="text" class="form-control" id="form-destination" placeholder="Train to Where">
+                    <label for="exampleFormControlInput1">First Train Time (HH:mm in military)</label>
+                    <input type="text" class="form-control" id="form-time" placeholder="Hours(00):Minutes(00)">
+                    <label for="exampleFormControlInput1">Frequency (Minutes)</label>
+                    <input type="text" class="form-control" id="form-frequency" placeholder="How often?">
+                    <button type="button" class="btn btn-primary" id="submit" type="submit" value="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <div class="push"></div>
     <footer class="bg-secondary text-white">
@@ -56,7 +91,7 @@
         </div>
     </footer>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script src="./assets/js/app.js"></script>
 
 </html>
