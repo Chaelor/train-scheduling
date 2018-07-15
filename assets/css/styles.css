@@ -8,10 +8,6 @@ form {
     padding: 20px;
 }
 
-table{
-    overflow-x: auto;
-}
-
 body{
     font-family: 'Raleway', sans-serif;
     color:white;
@@ -36,4 +32,14 @@ body{
 
 .form-group {
     padding: 10px;
+}
+
+
+@media only screen and (max-width:600px){
+    table{
+        overflow-x: auto;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }
