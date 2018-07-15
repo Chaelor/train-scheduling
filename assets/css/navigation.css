@@ -1,0 +1,78 @@
+
+:root {
+    --main-bg-color: #4aaaa5;
+}
+
+/************
+* Global --container is : 1100
+*/
+
+header{
+    width:100%;
+    margin: 0 auto;
+}
+
+header h1{
+    font-family: 'Kurale', serif;
+    color:white;
+}
+
+footer{
+    position: fixed;
+    bottom:0;
+    padding-top: 15px;
+    border-top: solid 10px;
+    border-color: var(--main-bg-color);
+    height:50px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Kurale', serif;
+}
+
+/************
+* Copy pasta nav and footer push
+*/
+.navbar-brand {
+    background-color: var(--main-bg-color);
+    animation: moveInLeft 1s ease-out;
+}
+
+.navbar {
+    padding:0;
+    font-family: 'Kurale', serif;
+}
+
+.nav-item {
+    animation: moveInLeft 1s ease-out .33s;
+    animation-fill-mode: backwards;
+}
+
+.nav-item:hover{
+    background-color: var(--main-bg-color);
+    border-radius: 5px;
+}
+
+.ml-auto {
+    margin-top: 7px;
+    justify-content: center;
+}
+
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.push {
+    height:75px;
+}
