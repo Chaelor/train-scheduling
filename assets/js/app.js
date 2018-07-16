@@ -51,9 +51,12 @@ $("document").ready(function () {
         //     modalText.text("The frequency must be a number");
         // }
 
-        if(!(firstDepart == false) || !(freq == false)){
+        if(!(firstDepart == false)){
             modal.show();
             modalText.text("Your numbers must be numbers!");
+        }else if(!(freq == false)){
+            modal.show();
+            modalText.text("The Frequency must be a number!");
         }
 
         //Was an area left blank?
