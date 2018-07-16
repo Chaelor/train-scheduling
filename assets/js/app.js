@@ -41,11 +41,11 @@ $("document").ready(function () {
         var freq = parseInt($("#form-frequency").val().trim());
         
         //Check to see if the firstDepart is more than 4
-        if(firstDepart.toString().length != 4 ) {
-            modal.show();
-            modalText.text("Your initial depart number must be 4 numbers");
-            return false;
-        }
+        // if(firstDepart.toString().length != 4 ) {
+        //     modal.show();
+        //     modalText.text("Your initial depart number must be 4 numbers");
+        //     return false;
+        // }
         // if(!(freq == false)){
         //     modal.show();
         //     modalText.text("The frequency must be a number");
