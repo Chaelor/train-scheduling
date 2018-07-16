@@ -6,8 +6,6 @@ $("document").ready(function () {
     //input capturers
     var trainName = "";
     var destination = "";
-    var time = "";
-    var freq = "";
 
     //database information
     var config = {
@@ -39,12 +37,23 @@ $("document").ready(function () {
         //Capture the data from the text input areas    
         trainName = $("#form-train-name").val().trim();
         destination = $("#form-destination").val().trim();
-        firstDepart = $("#form-time").val().trim();
-        freq = parseInt($("#form-frequency").val().trim());
-
-        if(freq != true){
+        var firstDepart = parseInt($("#form-time").val().trim());
+        console.log(firstDepart.toString().length);
+        var freq = parseInt($("#form-frequency").val().trim());
+        
+        if(firstDepart.toString().length > 4 ) {
             modal.show();
-            modalText.text("The frequency must be a number");
+            modalText.text("Your initial depart number must be less than 5 numbers");
+            return false;
+        }
+        // if(!(freq == false)){
+        //     modal.show();
+        //     modalText.text("The frequency must be a number");
+        // }
+
+        if(!(firstDepart == false) || !(freq == false)){
+            modal.show();
+            modalText.text("Your numbers must be numbers!");
         }
 
         //Was an area left blank?
@@ -55,7 +64,6 @@ $("document").ready(function () {
             modalText.text("Train Name was left blank");
             //Return false to break and not continue
             return false;
-
         } else if (destination === "") {
             modal.show();
             modalText.text("Destination was left blank");
