@@ -38,12 +38,12 @@ $("document").ready(function () {
         trainName = $("#form-train-name").val().trim();
         destination = $("#form-destination").val().trim();
         var firstDepart = parseInt($("#form-time").val().trim());
-        console.log(firstDepart.toString().length);
         var freq = parseInt($("#form-frequency").val().trim());
         
-        if(firstDepart.toString().length > 4 ) {
+        //Check to see if the firstDepart is more than 4
+        if(firstDepart.toString().length != 4 ) {
             modal.show();
-            modalText.text("Your initial depart number must be less than 5 numbers");
+            modalText.text("Your initial depart number must be 4 numbers");
             return false;
         }
         // if(!(freq == false)){
