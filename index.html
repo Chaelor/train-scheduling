@@ -73,14 +73,22 @@
         <div class="border border-info rounded main">
             <form>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Train Name</label>
-                    <input type="text" class="form-control" id="form-train-name" placeholder="Train Name">
-                    <label for="exampleFormControlInput1">Destination</label>
-                    <input type="text" class="form-control" id="form-destination" placeholder="Train to Where">
-                    <label for="exampleFormControlInput1">Initial Train Time (HH:mm in military)</label>
-                    <input type="text" class="form-control" id="form-time" placeholder="Hours(00):Minutes(00)">
-                    <label for="exampleFormControlInput1">Frequency (Minutes)</label>
-                    <input type="text" class="form-control" id="form-frequency" placeholder="How often?">
+                    <div class="form-input">
+                        <input type="text" class="form-control" id="form-train-name">
+                        <label for="form-train-name" class="label-train">Train Name</label>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" class="form-control" id="form-destination">
+                        <label for="form-destination" class="label-destination">Destination</label>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" class="form-control" id="form-time">
+                        <label for="form-time" class="label-time">Initial Train Time (HH:mm in military)</label>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" class="form-control" id="form-frequency">
+                        <label for="form-frequency" class="label-frequency">Frequency (Minutes)</label>
+                    </div>
                     <button type="button" class="btn btn-primary" id="submit" type="submit" value="submit">Submit</button>
                 </div>
             </form>

@@ -78,6 +78,22 @@ body{
     margin-bottom: 40px;
 }
 
+.form-input{
+    position:relative;
+}
+
+.label-train, .label-destination, .label-time, .label-frequency{
+    color:grey;
+    position: absolute;
+    top:8px;
+    left: 12px;
+}
+
+.positioning{
+    transform:translateY(30px);
+    transition-duration:.25s;
+    color:greenyellow;
+}
 .form-group {
     padding: 10px;
 }

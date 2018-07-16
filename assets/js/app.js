@@ -4,8 +4,10 @@ $("document").ready(function () {
     var modalText = $(".modal-text");
 
     //input capturers
-    var trainName = "";
-    var destination = "";
+    var trainName;
+    var destination;
+    var firstDepart;
+    var freq;
 
     //database information
     var config = {
@@ -17,6 +19,44 @@ $("document").ready(function () {
         messagingSenderId: "86869382557"
     };
 
+    
+    $("body").on("keydown", "#form-train-name", function() {
+        $(".label-train").addClass("positioning");
+    })
+
+    $("body").on("blur", "#form-train-name", function() {
+        if( !$.trim($("#form-train-name").val()) ) {
+            $(".label-train").removeClass("positioning");
+        }
+    })
+    
+    $("body").on("keydown", "#form-destination", function() {
+        $(".label-destination").addClass("positioning");
+    })
+
+    $("body").on("blur", "#form-destination", function() {
+        if( !$.trim($("#form-destination").val()) ) {
+            $(".label-destination").removeClass("positioning");
+        }
+    })
+    $("body").on("keydown", "#form-time", function() {
+        $(".label-time").addClass("positioning");
+    })
+    $("body").on("blur", "#form-time", function() {
+        if( !$.trim($("#form-time").val()) ) {
+            $(".label-time").removeClass("positioning");
+        }
+    })
+    $("body").on("keydown", "#form-frequency", function() {
+        $(".label-frequency").addClass("positioning");
+    })
+
+    $("body").on("blur", "#form-frequency", function() {
+        if( !$.trim($("#form-frequency").val()) ) {
+            $(".label-frequency").removeClass("positioning");
+        }
+    })
+    
     //Initialize firebase
     firebase.initializeApp(config);
 
@@ -28,7 +68,7 @@ $("document").ready(function () {
         modal.hide();
     });
     //close the modal if the anywhere but the modal is clicked on
-    $("body").on("click", function (event) {
+    $("body").on("click", "window", function (event) {
         modal.hide();
     })
 
@@ -37,8 +77,8 @@ $("document").ready(function () {
         //Capture the data from the text input areas    
         trainName = $("#form-train-name").val().trim();
         destination = $("#form-destination").val().trim();
-        var firstDepart = parseInt($("#form-time").val().trim());
-        var freq = parseInt($("#form-frequency").val().trim());
+        firstDepart = parseInt($("#form-time").val().trim());
+        freq = parseInt($("#form-frequency").val().trim());
         
         //Check to see if the firstDepart is more than 4
         // if(firstDepart.toString().length != 4 ) {
@@ -53,8 +93,9 @@ $("document").ready(function () {
 
         if(!(firstDepart == false)){
             modal.show();
-            modalText.text("Your numbers must be numbers!");
-        }else if(!(freq == false)){
+            modalText.text("Your Initial Departure must be a number!");
+        }
+        if(!(freq == false)){
             modal.show();
             modalText.text("The Frequency must be a number!");
         }
@@ -97,6 +138,11 @@ $("document").ready(function () {
         $("#form-destination").val("");
         $("#form-time").val("");
         $("#form-frequency").val("");
+        //Remove positioning class
+        $(".label-frequency").removeClass("positioning");
+        $(".label-train").removeClass("positioning");
+        $(".label-destination").removeClass("positioning");
+        $(".label-time").removeClass("positioning");
 
     });
 
