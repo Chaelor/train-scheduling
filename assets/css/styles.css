@@ -70,6 +70,14 @@ body{
     background-color: #545b62dc;
 }
 
+.main-form {
+    margin-top: 40px;
+    background-color: #545b62dc;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .table-data{
     padding: 20px;
 }
@@ -91,9 +99,16 @@ body{
 
 .positioning{
     transform:translateY(30px);
-    transition-duration:.25s;
-    color:greenyellow;
+    transition: transform .25s;
+    color:#00f8ec;
 }
+
+.positioningReverse{
+    transform:translateY(0);
+    transition: transform .25s;
+    color:grey;
+}
+
 .form-group {
     padding: 10px;
 }

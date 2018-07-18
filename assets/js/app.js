@@ -19,44 +19,49 @@ $("document").ready(function () {
         messagingSenderId: "86869382557"
     };
 
-    
-    $("body").on("keydown", "#form-train-name", function() {
+    //I should really, really come back and fix this all types of up lol.
+    $("body").on("focus", "#form-train-name", function () {
+        $(".label-train").removeClass("positioningReverse");
         $(".label-train").addClass("positioning");
     })
-
-    $("body").on("blur", "#form-train-name", function() {
-        if( !$.trim($("#form-train-name").val()) ) {
+    $("body").on("focusout", "#form-train-name", function () {
+        if (!$.trim($("#form-train-name").val())) {
+            $(".label-train").addClass("positioningReverse");
             $(".label-train").removeClass("positioning");
         }
     })
-    
-    $("body").on("keydown", "#form-destination", function() {
+    $("body").on("focus", "#form-destination", function () {
+        $(".label-destination").removeClass("positioningReverse");
         $(".label-destination").addClass("positioning");
     })
-
-    $("body").on("blur", "#form-destination", function() {
-        if( !$.trim($("#form-destination").val()) ) {
+    $("body").on("focusout", "#form-destination", function () {
+        if (!$.trim($("#form-destination").val())) {
+            $(".label-destination").addClass("positioningReverse");
             $(".label-destination").removeClass("positioning");
         }
     })
-    $("body").on("keydown", "#form-time", function() {
+    $("body").on("focus", "#form-time", function () {
+        $(".label-time").removeClass("positioningReverse");
         $(".label-time").addClass("positioning");
     })
-    $("body").on("blur", "#form-time", function() {
-        if( !$.trim($("#form-time").val()) ) {
+    $("body").on("focusout", "#form-time", function () {
+        if (!$.trim($("#form-time").val())) {
+            $(".label-time").addClass("positioningReverse");
             $(".label-time").removeClass("positioning");
         }
     })
-    $("body").on("keydown", "#form-frequency", function() {
+    $("body").on("focus", "#form-frequency", function () {
+        $(".label-frequency").removeClass("positioningReverse");
         $(".label-frequency").addClass("positioning");
     })
 
-    $("body").on("blur", "#form-frequency", function() {
-        if( !$.trim($("#form-frequency").val()) ) {
+    $("body").on("focusout", "#form-frequency", function () {
+        if (!$.trim($("#form-frequency").val())) {
+            $(".label-frequency").addClass("positioningReverse");
             $(".label-frequency").removeClass("positioning");
         }
     })
-    
+
     //Initialize firebase
     firebase.initializeApp(config);
 
@@ -68,37 +73,37 @@ $("document").ready(function () {
         modal.hide();
     });
     //close the modal if the anywhere but the modal is clicked on
-    $("body").on("click", "window", function (event) {
+    $("body").on("click", function (event) {
         modal.hide();
     })
 
-    $("body").on("click", "#submit", function () {
 
+    $("body").on("click", "#submit", function () {
         //Capture the data from the text input areas    
         trainName = $("#form-train-name").val().trim();
         destination = $("#form-destination").val().trim();
-        firstDepart = parseInt($("#form-time").val().trim());
-        freq = parseInt($("#form-frequency").val().trim());
-        
-        //Check to see if the firstDepart is more than 4
-        // if(firstDepart.toString().length != 4 ) {
-        //     modal.show();
-        //     modalText.text("Your initial depart number must be 4 numbers");
-        //     return false;
-        // }
-        // if(!(freq == false)){
-        //     modal.show();
-        //     modalText.text("The frequency must be a number");
-        // }
+        firstDepart = $("#form-time").val().trim();
+        freq = $("#form-frequency").val().trim();
 
-        if(!(firstDepart == false)){
-            modal.show();
-            modalText.text("Your Initial Departure must be a number!");
-        }
-        if(!(freq == false)){
-            modal.show();
-            modalText.text("The Frequency must be a number!");
-        }
+        // //Check to see if the firstDepart is more than 4
+        // // if(firstDepart.toString().length != 4 ) {
+        // //     modal.show();
+        // //     modalText.text("Your initial depart number must be 4 numbers");
+        // //     return false;
+        // // }
+        // // if(!(freq == false)){
+        // //     modal.show();
+        // //     modalText.text("The frequency must be a number");
+        // // }
+
+        // if (!(firstDepart == false)) {
+        //     modal.show();
+        //     modalText.text("Your Initial Departure must be a number!");
+        // }
+        // if (!(freq == false)) {
+        //     modal.show();
+        //     modalText.text("The Frequency must be a number!");
+        // }
 
         //Was an area left blank?
         if (trainName === "") {
@@ -121,8 +126,6 @@ $("document").ready(function () {
             modalText.text("Train frequency was left blank");
             return false;
         }
-
-
 
         //Give the database these key value pairs
         database.ref().push({

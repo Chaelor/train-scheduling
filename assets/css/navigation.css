@@ -20,10 +20,10 @@ header h1{
 footer{
     position: fixed;
     bottom:0;
-    padding-top: 15px;
-    border-top: solid 10px;
+    padding-top: 1.5rem;
+    border-top: solid 1rem;
     border-color: var(--main-bg-color);
-    height:50px;
+    height:5rem;
     text-align: center;
     width: 100%;
     font-family: 'Kurale', serif;
@@ -49,11 +49,11 @@ footer{
 
 .nav-item:hover{
     background-color: var(--main-bg-color);
-    border-radius: 5px;
+    border-radius: .5rem;
 }
 
 .ml-auto {
-    margin-top: 7px;
+    margin-top: .7rem;
     justify-content: center;
 }
 
@@ -74,5 +74,5 @@ footer{
 }
 
 .push {
-    height:75px;
+    height:7.5rem;
 }
