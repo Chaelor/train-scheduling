@@ -29,6 +29,9 @@ footer{
     font-family: 'Kurale', serif;
 }
 
+.submit-button{
+    color: black;
+}
 /************
 * Copy pasta nav and footer push
 */

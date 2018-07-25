@@ -82,6 +82,14 @@ body{
     padding: 20px;
 }
 
+.red-x-display{
+    text-align: center;
+}
+.red-x{
+    color: red;
+    text-align: center;
+    cursor: pointer;
+}
 .form-control{
     margin-bottom: 40px;
 }

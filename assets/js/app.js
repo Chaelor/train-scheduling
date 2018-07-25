@@ -8,6 +8,7 @@ $("document").ready(function () {
     var destination;
     var firstDepart;
     var freq;
+    var keyArray = [];
 
     //database information
     var config = {
@@ -67,6 +68,9 @@ $("document").ready(function () {
 
     //store the database into an array
     var database = firebase.database();
+    var ref =  database.ref();
+
+
 
     //close the modal if the x is clicked on
     $("body").on("click", ".close", function () {
@@ -77,6 +81,12 @@ $("document").ready(function () {
         modal.hide();
     })
 
+    $("body").on("click", ".red-x", function() {
+        console.log(this);
+        var id = $(this).attr('id');
+        database.ref.remove(id);
+        //ref.child(key).remove();
+    })
 
     $("body").on("click", "#submit", function () {
         //Capture the data from the text input areas    
@@ -151,7 +161,6 @@ $("document").ready(function () {
 
     //Getting data from the database
     database.ref().on("child_added", function (childSnapshot) {
-
         //Snapshot of the frequency from the database
         var trainFreq = childSnapshot.val().freq;
 
@@ -170,11 +179,16 @@ $("document").ready(function () {
         //This is giving the hour and minute of the next train arrival
         var placeholderTime = moment().add(timeTillTrain, "minutes");
         var arrivalTime = moment(placeholderTime).format("hh:mm");
+        console.log(childSnapshot.key);
+        keyArray.push(childSnapshot.key);
+        console.log(keyArray);
+
 
         //Display the information into the table
-        $(".table-data").prepend(
+        $(".table-data").prepend(   
             //Add a row then table data
-            "<tr><td>" + childSnapshot.val().trainName + "</td>" +
+            "<tr><td>" + "<div class='red-x' id='" + childSnapshot.key + "'>x</div>" + "</td>" +
+            "<td>" + childSnapshot.val().trainName + "</td>" +
             "<td>" + childSnapshot.val().destination + "</td>" +
             "<td>" + childSnapshot.val().freq + "</td>" +
             "<td>" + timeTillTrain + " minutes" + "</td>" +
